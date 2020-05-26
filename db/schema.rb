@@ -15,15 +15,15 @@ ActiveRecord::Schema.define(version: 2020_05_26_203129) do
   create_table "appointments", id: false, force: :cascade do |t|
     t.integer "pet_id", null: false
     t.integer "user_id", null: false
-    t.datetime "date"
-    t.datetime "duration"
+    t.datetime "check_out"
+    t.datetime "check_in"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "species"
     t.string "breed"
     t.integer "age"
     t.integer "weight"
