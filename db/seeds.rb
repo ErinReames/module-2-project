@@ -9,9 +9,9 @@
 # Seed Counts
 user_count = 10
 store_count = 5
-pet_count = 30
-appointment_count = 15
-review_count = 10
+pet_count = 25
+appointment_count = 35
+review_count = 25
 
 
 # Delete Old Seeds
@@ -52,7 +52,7 @@ end
 
 # Appointment Seeds
 appointment_count.times do
-    check_out = Faker::Date.forward(days: 180)
+    check_out = Faker::Date.between(from: (DateTime.now - 90.days), to: (DateTime.now + 90.days))
     check_in = check_out + rand(1..7)
     user_id = User.all.sample.id
     pet_id = Pet.all.sample.id

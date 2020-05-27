@@ -14,15 +14,31 @@ class UsersController < ApplicationController
     end
 
     def create
+        @user = User.create(user_params)
+        if @user.valid?
+            redirect_to(user_path(@user))
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to(new_user_path)
+        end
     end
 
     def edit
     end
 
     def update
+        @user.update(user_params)
+        if @user.valid?
+            redirect_to(user_path(@user))
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to(edit_user_path(@user))
+        end
     end
 
     def destroy
+        @user.destroy
+        redirect_to(users_path)
     end
 
     # Private Class Helper Methods
@@ -34,4 +50,5 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:username, :phone, :address)
     end
+    
 end
