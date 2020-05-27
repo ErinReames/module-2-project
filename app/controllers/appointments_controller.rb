@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
 
     # Action/Route Methods
     def index
-        @appointments = Appointment.all
+        @appointments = Appointment.all_date_ordered
     end
 
     def show

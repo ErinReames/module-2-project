@@ -1,7 +1,7 @@
 <h1>All Appointments</h1>
 <%= link_to('Create New Appointment', new_appointment_path) %>
 
-<ul><% @appointments.all_date_ordered.each do |appointment| %>
+<ul><% @appointments.each do |appointment| %>
    <li><%= link_to(appointment.summary, appointment_path(appointment)) %></li> 
    <ul>
       <li>User: <%= link_to(appointment.user.username, user_path(appointment.user)) %></li>

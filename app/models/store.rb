@@ -7,4 +7,9 @@ class Store < ApplicationRecord
     validates(:name, :address, presence: true)
     validates(:address, uniqueness: true) 
 
+    # Class Methods
+    def self.all_name_ordered
+        self.order(name: :asc)
+    end
+
 end
