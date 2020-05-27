@@ -5,8 +5,12 @@ class PetsController < ApplicationController
     end
 
     def show
-        @pet = Pet.find[:id]
+        @pet = Pet.find(params[:id])
     end
 
+    private
 
+    def pet_params
+        params.require(:pet).permit(:name)
+    end
 end
