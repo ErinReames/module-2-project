@@ -16,5 +16,10 @@ class User < ApplicationRecord
     def previous_appointments
         Appointment.where("user_id = ? AND check_out < ?", self.id, DateTime.now).order(check_out: :desc)
     end
+
+    # Class Methods
+    def self.all_username_ordered
+        self.order(username: :asc)
+    end
     
 end

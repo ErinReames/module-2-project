@@ -22,4 +22,13 @@ class Appointment < ApplicationRecord
         ((self.check_in - self.check_out)/86500).round
     end
 
+    def summary
+        "#{self.check_out_date} (#{self.duration} days)"
+    end
+
+    # Class Methods
+    def self.all_date_ordered
+        self.order(check_out: :desc)
+    end
+
 end

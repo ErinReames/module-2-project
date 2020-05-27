@@ -1,0 +1,8 @@
+<h1><%= @appointment.summary %><h1>
+<h3>Appointment Details:</h3>
+<ul>
+    <li>Check-Out Date: <%= @appointment.check_out_date %></li>
+    <li>Check-in Date: <%= @appointment.check_in_date %></li>
+    <li>User: <%= link_to(@appointment.user.username, user_path(@appointment.user)) %></li>
+    <li>Pet: <%= link_to(@appointment.pet.name, pet_path(@appointment.pet)) %></li>
+</ul>

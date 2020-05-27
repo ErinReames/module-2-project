@@ -9,4 +9,9 @@ class Pet < ApplicationRecord
     validates(:name, :species, :breed, :age, :weight, presence: true)
     validates(:species, inclusion: {in: ["Dog"]})
 
+    # Class Methods
+    def self.all_name_ordered
+        self.order(name: :asc)
+    end
+
 end

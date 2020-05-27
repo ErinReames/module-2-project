@@ -1,0 +1,23 @@
+<% if flash[:errors] %>
+    <ul style = "color: red">
+    <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_with(model: @appointment) do |f| %>
+    <%= f.label(:user) %>
+    <%= f.collection_select(:user_id, User.all_username_ordered, :id, :username) %>
+    <br>
+    <%= f.label(:pet) %>
+    <%= f.collection_select(:pet_id, Pet.all_name_ordered, :id, :name) %>
+    <br>
+    <%= f.label("Pet Check Out") %>
+    <%= f.date_field(:check_out) %>
+    <br>
+    <%= f.label("Pet Check In") %>
+    <%= f.date_field(:check_in) %>
+    <br>
+    <%= f.submit %>
+<% end %>

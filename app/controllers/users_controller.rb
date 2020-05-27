@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+    # Action/Route Filters
     before_action(:assign_user, only: [:show, :edit, :update, :destroy])
 
     # Action/Route Methods
     def index
-        @users = User.all
+        @users = User.all_username_ordered
     end
 
     def show
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
         redirect_to(users_path)
     end
 
-    # Private Class Helper Methods
+    # Private Class Instance Helper Methods
     private
     def assign_user
         @user = User.find(params[:id])

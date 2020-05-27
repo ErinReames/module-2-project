@@ -11,13 +11,13 @@
 <h3>Upcoming Appointments:</h3>
 <ul>
     <% @user.upcoming_appointments.each do |appointment| %>
-        <li><%= link_to(appointment.check_out_date, appointment_path(appointment)) + ": " + link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
+        <li><%= link_to(appointment.summary, appointment_path(appointment)) + ": " + link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
     <% end %>
 </ul>
 
 <h3>Previous Appointments:</h3>
 <ul>
     <% @user.previous_appointments.each do |appointment| %>
-        <li><%= link_to(appointment.check_out_date, appointment_path(appointment)) + ": " + link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
+        <li><%= link_to(appointment.summary, appointment_path(appointment)) + ": " + link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
     <% end %>
 </ul>
