@@ -1,5 +1,7 @@
 <h1>Pet Reviews</h1>
 
-// <% @reviews.each do |review| %>
-//    <h3><%= link_to review.title, review_path(review) %></h3> 
-// <% end %>
+ <% @reviews.each do |review| %>
+    <h3><%= link_to review.title, review_path(review) %></h3> 
+ <% end %>
+
+ <%= link_to('Create New Review', new_review_path) %>
