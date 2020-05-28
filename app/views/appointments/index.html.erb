@@ -1,10 +1,21 @@
-<h1>All Appointments</h1>
-<%= link_to('Create New Appointment', new_appointment_path) %>
+<div class="h1 text-center"><h1>All Appointments</h1>
+<h3><%= link_to('Create New Appointment', new_appointment_path) %></h3></div>
+<br>
+<br>
 
-<ul><% @appointments.each do |appointment| %>
-   <li><%= link_to(appointment.summary, appointment_path(appointment)) %></li> 
-   <ul>
-      <li>User: <%= link_to(appointment.user.username, user_path(appointment.user)) %></li>
-      <li>Pet: <%= link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
-   </ul>
-<% end %></ul>
+
+<ul class="list-group-item text-center ">
+   <div class="flex-column">
+
+  <% @appointments.each do |appointment| %>
+  <li class="list-group-item"><%= link_to(appointment.summary, appointment_path(appointment)) %><br>
+   <%= link_to(appointment.user.username, user_path(appointment.user)) %>
+   <li>Pet: <%= link_to(appointment.pet.name, pet_path(appointment.pet)) %>
+  </li>
+  
+  <% end %>
+  </div>
+</ul>
+
+<br>
+<br>

@@ -1,12 +1,21 @@
-<h1><%= @store.name %><h1>
-<h3>Contact Information</h3>
-<ul>
-    <li>Address: <%= @store.address %></li>
-</ul>
 
-<h3>Available Pets (<%= @store.pets_count %>)</h3>
-<ul>
+<br>
+<br>
+
+<div class="card" style="width: 18rem;">
+ 
+  <div class="card-body">
+    <h5 class="card-title"><h1><%= @store.name %><h1></h5>
+    <h4 class="card-text">Contact Information</h4><br>
+    <li class="card-text">Address: <%= @store.address %></li>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <h5 class="list-group-item">Available Pets (<%= @store.pets_count %>)</h5>
+    <li class="list-group-item"><ul>
     <% @store.pets.all_name_ordered.each do |pet| %>
         <li><%= link_to(pet.name, pet_path(pet)) %> (Average Rating: <%=pet.average_review_rating%>)</li>
     <% end %>
-</ul>
+</ul></li>
+    
+</div>

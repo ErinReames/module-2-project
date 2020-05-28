@@ -1,12 +1,18 @@
-<h1>Available Pets</h1>
 
-<ul>
-   <% @pets.each do |pet| %>
-      <li><%= link_to(pet.name, pet_path(pet)) %></li>
-      <ul>
-         <li>Average Rating: <%= pet.average_review_rating %></li>
-         <li><%= pluralize(pet.upcoming_appointments_count, "Upcoming Appointment") %></li>
-      </ul>
-   <% end %>
-<ul>
 
+<div class="h1 text-center"> 
+<h1 >Available Pets</h1></div>
+
+<ul class="list-group-item text-center ">
+   <div class="flex-column">
+ 
+  <% @pets.each do |pet| %>
+  <li class="list-group-item"><%= link_to(pet.name, pet_path(pet)) %><br>
+  Average Rating: <%= pet.average_review_rating %><br>
+  <li class="list-group-item"></li>
+  <%= pluralize(pet.upcoming_appointments_count, "Upcoming Appointment") %><br>
+ </li>
+  
+  <% end %>
+  </div>
+</ul>

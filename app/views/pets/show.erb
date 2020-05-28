@@ -1,32 +1,38 @@
-<h1>Meet <%= @pet.name %></h1>
-<%= image_tag(@pet.picture_url) %>
-<h3>About</h3>
-<ul>
-    <li>Species: <%= @pet.species %></li>
-    <li>Breed: <%= @pet.breed %></li>
-    <li>Age: <%= @pet.age %></li>
-    <li>Weight (lbs): <%= @pet.weight %></li>
-    <li>Disposition: <%= @pet.disposition %></li>
-    <li>Special Needs: <%= @pet.special_need %></li>
-    <li>Average Rating: <%= @pet.average_review_rating %></li>
-</ul>
-
-<h3>Upcoming Appointments (<%=@pet.upcoming_appointments_count%>)</h3>
-<ul>
+<br>
+<br>
+<div class="card" style="width: 50rem;">
+  <%= image_tag(@pet.picture_url) %>
+  <div class="card-body">
+    <h5 class="card-title">About <%= @pet.name %></h5>
+    <p class="card-text">Here are some quick stats about your new friend:</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Age: <%= @pet.age %></li>
+    <li class="list-group-item">Weight (lbs): <%= @pet.weight %></li>
+    <li class="list-group-item">Disposition: <%= @pet.disposition %></li>
+    
+      <li class="list-group-item">Average Rating: <%= @pet.average_review_rating %></li>
+       
+  </ul>
+  <div class="card-body">
+    <h5 class="card-title">Upcoming Appointments (<%=@pet.upcoming_appointments_count%>)</h5>
+    <ul>
     <% @pet.upcoming_appointments.each do |appointment| %>
         <li><%= link_to(appointment.summary, appointment_path(appointment)) %></li>
     <% end %>
-</ul>
-
-<h3>Previous Appointments (<%=@pet.previous_appointments_count%>)</h3>
-<ul>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Previous Appointments (<%=@pet.previous_appointments_count%>)</h5>
+    <ul>
     <% @pet.previous_appointments.each do |appointment| %>
         <li><%= link_to(appointment.summary, appointment_path(appointment)) %></li>
     <% end %>
-</ul>
-
-<h3> Reviews (<%=@pet.reviews_count%>)</h3>
-<ul>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Reviews (<%=@pet.reviews_count%>)</h5>
+    <ul>
     <% @pet.reviews_date_ordered.each do |review| %>
         <li><%= link_to(review.title , review_path(review))%></li>
         <ul>
@@ -34,5 +40,10 @@
             <li>Rating: <%= review.rating %></li>
             <li>Updated: <%= review.updated_at%>
         </ul>
-    <% end %>
+            <% end %>
 </ul>
+  </div>
+  
+</div>
+<br>
+<br>
