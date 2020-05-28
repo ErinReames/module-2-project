@@ -26,8 +26,16 @@ user_count.times do
     username = Faker::Name.name
     address = Faker::Address.full_address
     phone = Faker::PhoneNumber.phone_number
-    User.create(username: username, address: address, phone: phone)
+    password = "password"
+    User.create(username: username, address: address, phone: phone, password: password, password_confirmation: password)
 end
+
+# User Seeds (Admin Account)
+username = "admin"
+address = Faker::Address.full_address
+phone = Faker::PhoneNumber.phone_number
+password = "admin"
+User.create(username: username, address: address, phone: phone, password: password, password_confirmation: password)
 
 # Store Seeds
 store_count.times do

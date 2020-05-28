@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     # Action/Route Filters
-    before_action(:require_login, except: [:index, :new])
     before_action(:assign_user, only: [:show, :edit, :update, :destroy])
+    before_action(:require_login, except: [:index, :new, :create])
 
     # Action/Route Methods
     def index
@@ -18,6 +18,8 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid?
+            # Login User the redirect to their show page
+            session[:user_id] = @user.id
             redirect_to(user_path(@user))
         else
             flash[:errors] = @user.errors.full_messages
@@ -54,7 +56,17 @@ class UsersController < ApplicationController
     end
 
     def require_login
-        return head(:forbidden) unless session.include?(:user_id)
+        if current_user
+            if current_user.username == "admin"
+                # Admin is logged in
+            else
+                # Only allow users to look at their pages
+                return head(:forbidden) unless current_user.id == @user.id
+            end
+        else
+            # No user is logged in
+            return head(:forbidden)
+        end
     end
     
 end
