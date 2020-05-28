@@ -1,10 +1,38 @@
 <h1>Meet <%= @pet.name %></h1>
+<%= image_tag(@pet.picture_url) %>
+<h3>About</h3>
 <ul>
-<li><%= @pet.species %></li>
-<li><%= @pet.breed %></li>
-<li><%= @pet.age %></li>
-<li><%= @pet.weight %></li>
-<li><%= @pet.disposition %></li>
-<li><%= @pet.special_need %></li>
-<li><%= @pet.picture_url %></li>
+    <li>Species: <%= @pet.species %></li>
+    <li>Breed: <%= @pet.breed %></li>
+    <li>Age: <%= @pet.age %></li>
+    <li>Weight (lbs): <%= @pet.weight %></li>
+    <li>Disposition: <%= @pet.disposition %></li>
+    <li>Special Needs: <%= @pet.special_need %></li>
+    <li>Average Rating: <%= @pet.average_review_rating %></li>
+</ul>
+
+<h3>Upcoming Appointments (<%=@pet.upcoming_appointments_count%>)</h3>
+<ul>
+    <% @pet.upcoming_appointments.each do |appointment| %>
+        <li><%= link_to(appointment.summary, appointment_path(appointment)) %></li>
+    <% end %>
+</ul>
+
+<h3>Previous Appointments (<%=@pet.previous_appointments_count%>)</h3>
+<ul>
+    <% @pet.previous_appointments.each do |appointment| %>
+        <li><%= link_to(appointment.summary, appointment_path(appointment)) %></li>
+    <% end %>
+</ul>
+
+<h3> Reviews (<%=@pet.reviews_count%>)</h3>
+<ul>
+    <% @pet.reviews_date_ordered.each do |review| %>
+        <li><%= link_to(review.title , review_path(review))%></li>
+        <ul>
+            <li>User: <%= review.user.username %></li>
+            <li>Rating: <%= review.rating %></li>
+            <li>Updated: <%= review.updated_at%>
+        </ul>
+    <% end %>
 </ul>
