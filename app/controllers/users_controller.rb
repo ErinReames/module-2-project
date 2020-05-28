@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     # Action/Route Filters
+    before_action(:require_login, except: [:index, :new])
     before_action(:assign_user, only: [:show, :edit, :update, :destroy])
 
     # Action/Route Methods
@@ -49,7 +50,11 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:username, :phone, :address)
+        params.require(:user).permit(:username, :phone, :address, :password, :password_confirmation)
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include?(:user_id)
     end
     
 end

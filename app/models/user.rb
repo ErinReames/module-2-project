@@ -1,12 +1,16 @@
 class User < ApplicationRecord
+    # Rails Password Encryption
+    has_secure_password
+
     # ActiveRecord Relationships
     has_many(:appointments)
     has_many(:reviews)
     has_many(:pets, through: :appointments)
 
     # Validations
-    validates(:username, :phone, :address, presence: true)
+    validates(:username, :phone, :address, :password, :password_confirmation, presence: true)
     validates(:username, uniqueness: true) 
+    validates(:password, confirmation: true)
 
     # Class Instance Methods
     def upcoming_appointments

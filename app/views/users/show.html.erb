@@ -5,8 +5,10 @@
     <li>Address: <%= @user.address %></li>
 </ul>
 
+<%= link_to('New Appointment', new_appointment_path) %>
 <%= link_to('Edit', edit_user_path(@user)) %>
 <%= link_to('Delete', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }) %>
+<%= link_to('Logout', session_path(session), method: :delete) %>
 
 <h3>Upcoming Appointments (<%=@user.upcoming_appointments_count%>)</h3>
 <ul>
