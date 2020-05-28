@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
     end
 
     def new
-        @appointment = Appointment.new
+        !!params[:appointment] ? @appointment = Appointment.new(appointment_params) : @appointment = Appointment.new
     end
 
     def create
@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
             redirect_to(appointment_path(@appointment))
         else
             flash[:errors] = @appointment.errors.full_messages
-            redirect_to(new_appointment_path)
+            redirect_to(new_appointment_path(appointment: appointment_params))
         end
     end
     

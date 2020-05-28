@@ -45,7 +45,12 @@ pet_count.times do
     weight = Faker::Number.within(range: 1..100)
     disposition = Faker::Hipster.sentence
     special_need = "TBD"
-    picture_url = "https://dog.ceo/dog-api/"
+
+    # Pull pet picture_url from Dog API
+    uri = URI.parse("https://dog.ceo/api/breeds/image/random")
+    response = Net::HTTP.get_response(uri)
+    picture_url = JSON.parse(response.body)["message"]
+    
     store_id = Store.all.sample.id
     Pet.create(name: name, species: species, breed: breed, age: age, weight: weight, disposition: disposition, special_need: special_need, picture_url: picture_url, store_id: store_id)
 end

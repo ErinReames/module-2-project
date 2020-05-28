@@ -11,8 +11,7 @@ class UsersController < ApplicationController
     end
 
     def new
-        # params[:user_params] ? User.new : User.create(user_params)
-        @user = User.new
+        !!params[:user] ? @user = User.new(user_params) : @user = User.new
     end
 
     def create
@@ -21,8 +20,7 @@ class UsersController < ApplicationController
             redirect_to(user_path(@user))
         else
             flash[:errors] = @user.errors.full_messages
-            # redirect_to(new_user_path(user_params))
-            redirect_to(new_user_path)
+            redirect_to(new_user_path(user: user_params))
         end
     end
 

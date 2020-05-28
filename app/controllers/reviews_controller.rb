@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     end
 
     def new
-        @review = Review.new   
+        !!params[:review] ? @review = Review.new(review_params) : @review = Review.new
     end
 
     def create
@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
             redirect_to review_path(@review)
         else
             flash[:errors] = @review.errors.full_messages
-            redirect_to new_review_path
+            redirect_to(new_review_path(review: review_params))
         end
     end
 
