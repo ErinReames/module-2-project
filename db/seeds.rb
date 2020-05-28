@@ -31,7 +31,7 @@ user_count.times do
 end
 
 # User Seeds (Admin Account)
-username = "admin"
+username = "Admin"
 address = Faker::Address.full_address
 phone = Faker::PhoneNumber.phone_number
 password = "admin"
