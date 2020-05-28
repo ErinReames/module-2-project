@@ -5,7 +5,7 @@ class Store < ApplicationRecord
 
     # Validations
     validates(:name, :address, presence: true)
-    validates(:address, uniqueness: true) 
+    validates(:address, uniqueness: true)
 
     # Class Instance Methods
     def pets_count

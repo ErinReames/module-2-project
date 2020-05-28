@@ -1,6 +1,12 @@
 <h1>Available Pets</h1>
 
-<% @pets.each do |pet| %>
-   <h3><%= link_to pet.name, pet_path(pet) %></h3> 
-<% end %>
+<ul>
+   <% @pets.each do |pet| %>
+      <li><%= link_to(pet.name, pet_path(pet)) %></li>
+      <ul>
+         <li>Average Rating: <%= pet.average_review_rating %></li>
+         <li><%= pluralize(pet.upcoming_appointments_count, "Upcoming Appointment") %></li>
+      </ul>
+   <% end %>
+<ul>
 

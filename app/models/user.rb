@@ -37,6 +37,9 @@ class User < ApplicationRecord
         self.reviews.order(updated_at: :desc)
     end
 
+    def pets_count
+        self.pets.uniq.count
+    end
     # Class Methods
     def self.all_username_ordered
         self.order(username: :asc)
