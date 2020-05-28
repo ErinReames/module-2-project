@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    # Action/Route Methods
     def index
         @reviews = Review.all_rating_ordered
     end
@@ -21,8 +22,7 @@ class ReviewsController < ApplicationController
         end
     end
 
-   
-     
+   # Private Class Instance Helper Methods
     private
 
     def review_params
