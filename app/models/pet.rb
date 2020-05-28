@@ -18,6 +18,30 @@ class Pet < ApplicationRecord
         end
     end
 
+    def upcoming_appointments
+        Appointment.where("pet_id = ? AND check_out >= ?", self.id, DateTime.now).order(check_out: :asc)
+    end
+
+    def upcoming_appointments_count
+        self.upcoming_appointments.count
+    end
+
+    def previous_appointments
+        Appointment.where("pet_id = ? AND check_out < ?", self.id, DateTime.now).order(check_out: :desc)
+    end
+
+    def previous_appointments_count
+        self.previous_appointments.count
+    end
+
+    def reviews_count
+        self.reviews.count
+    end
+
+    def reviews_date_ordered
+        self.reviews.order(updated_at: :desc)
+    end
+
     # Class Methods
     def self.all_name_ordered
         self.order(name: :asc)
