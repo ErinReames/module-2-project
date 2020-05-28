@@ -2,6 +2,6 @@
 
 <ul>
    <% @stores.each do |store| %>
-      <li><%= link_to(store.name, store_path(store)) %> (<%= pluralize(store.pets.count, "pet") %>) </li> 
+      <li><%= link_to(store.name, store_path(store)) %> (<%= pluralize(store.pets_count, "pet") %>) </li> 
    <% end %>
 </ul>

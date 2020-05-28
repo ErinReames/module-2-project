@@ -1,12 +1,12 @@
 <h1><%= @store.name %><h1>
-<h3>Contact Information:</h3>
+<h3>Contact Information</h3>
 <ul>
     <li>Address: <%= @store.address %></li>
 </ul>
 
-<h3>Available Pets:</h3>
+<h3>Available Pets (<%= @store.pets_count %>)</h3>
 <ul>
     <% @store.pets.all_name_ordered.each do |pet| %>
-        <li><%= link_to(pet.name, pet_path(pet)) %></li>
+        <li><%= link_to(pet.name, pet_path(pet)) %> (Average Rating: <%=pet.average_review_rating%>)</li>
     <% end %>
 </ul>

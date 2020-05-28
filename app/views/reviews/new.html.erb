@@ -8,21 +8,21 @@
     </ul>
 <% end %>
 
-<%= form_for @review do |f| %>
-    <%= f.label :user %>
+<%= form_with(model: @review) do |f| %>
+    <%= f.label(:user) %>
     <%= f.collection_select(:user_id, User.all_username_ordered, :id, :username) %>
     <br>
-    <%= f.label :pet %>
+    <%= f.label(:pet) %>
     <%= f.collection_select(:pet_id, Pet.all_name_ordered, :id, :name) %>
     <br>
-    <%= f.label("Title") %>
-    <%= f.text_field :title %>
+    <%= f.label(:title) %>
+    <%= f.text_field(:title) %>
     <br>
-    <%= f.label("Description") %>
-    <%= f.text_field :content %>
+    <%= f.label(:content) %>
+    <%= f.text_area(:content) %>
     <br>
-    <%= f.label("Rating") %>
-    <%= f.number_field :content %>
+    <%= f.label(:rating) %>
+    <%= f.number_field(:rating, in: (1..5)) %>
     <br>
     <%= f.submit %>
 <% end %>
