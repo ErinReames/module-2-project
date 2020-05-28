@@ -44,7 +44,7 @@ pet_count.times do
     age = Faker::Number.within(range: 1..15)
     weight = Faker::Number.within(range: 1..100)
     disposition = Faker::Hipster.sentence
-    special_need = "TBD"
+    special_need = "None"
 
     # Pull pet picture_url from Dog API
     uri = URI.parse("https://dog.ceo/api/breeds/image/random")
