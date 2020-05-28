@@ -1,7 +1,16 @@
-<h1>All Stores</h1>
+<div class="h1 text-center"> <h1>All Stores</h1></div>
 
-<ul>
-   <% @stores.each do |store| %>
-      <li><%= link_to(store.name, store_path(store)) %> (<%= pluralize(store.pets_count, "pet") %>) </li> 
-   <% end %>
+<br>
+<br>
+<br>
+<br>
+<ul class="list-group-item text-center ">
+   <div class="flex-column">
+  
+  <% @stores.each do |store| %>
+  <li class="list-group-item"><%= link_to(store.name, store_path(store)) %><br>
+  <%= pluralize(store.pets_count, "pet")%></li>
+  
+  <% end %>
+  </div>
 </ul>

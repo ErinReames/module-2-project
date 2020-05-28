@@ -1,37 +1,66 @@
-<h1><%= @user.username %><h1>
-<h3>Contact Information</h3>
-<ul>
-    <li>Phone: <%= @user.phone %></li>
-    <li>Address: <%= @user.address %></li>
-</ul>
 
 <%= link_to('New Appointment', new_appointment_path) %>
 <%= link_to('Edit', edit_user_path(@user)) %>
 <%= link_to('Delete', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }) %>
 <%= link_to('Logout', logout_path) %>
 
-<h3>Upcoming Appointments (<%=@user.upcoming_appointments_count%>)</h3>
-<ul>
-    <% @user.upcoming_appointments.each do |appointment| %>
-        <li><%= link_to(appointment.summary, appointment_path(appointment)) + ": " + link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
-    <% end %>
-</ul>
-
-<h3>Previous Appointments (<%=@user.previous_appointments_count%>)</h3>
-<ul>
-    <% @user.previous_appointments.each do |appointment| %>
-        <li><%= link_to(appointment.summary, appointment_path(appointment)) + ": " + link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
-    <% end %>
-</ul>
-
-<h3>Written Reviews (<%=@user.reviews_count%>)</h3>
-<ul>
-    <% @user.reviews_date_ordered.each do |review| %>
-        <li><%= link_to(review.title , review_path(review))%></li>
+<div class="card" style="width: 18rem;">
+ <div class="card-body">
+      <h3 class="card-title"><%= @user.username %></h3></div>
+    
+  <div class="list-group list-group-flush">
+  <h4>Contact Information</h4>
+    <li class="list-group-item">Phone: <%= @user.phone %></li>
+    <li class="list-group-item">Address: <%= @user.address %></</li>
+    <li class="list-group-item"><%= link_to('Edit', edit_user_path(@user)) %> or 
+    <%= link_to('Delete', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }) %> Contact Info</li>
+  </div>
+  
+  <div class="card-body">
+        <h3 class="card-title">Upcoming Appointments (<%=@user.upcoming_appointments_count%>)</h3>
+    
         <ul>
-            <li>Pet: <%= link_to(review.pet.name, pet_path(review.pet)) %></li>
-            <li>Rating: <%= review.rating %></li>
+            <% @user.upcoming_appointments.each do |appointment| %>
+            <li><%= link_to(appointment.summary, appointment_path(appointment)) + ": " + link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
+                <% end %>
+        </ul>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    
+ 
+  </ul>
+
+  <div class="card-body">
+       <br> <h3 class="card-title">Previous Appointments (<%=@user.previous_appointments_count%>)</h3>
+    
+        <ul>
+            <% @user.previous_appointments.each do |appointment| %>
+            <li><%= link_to(appointment.summary, appointment_path(appointment)) + ": " + link_to(appointment.pet.name, pet_path(appointment.pet)) %></li>
+                <% end %>
+        </ul>
+
+  </div>
+  
+  
+  <ul class="list-group list-group-flush">
+    
+ 
+  </ul>
+
+  
+    <div class="card-body">
+        <h3 class="card-title">Written Reviews (<%=@user.reviews_count%>)</h3>
+        <ul>
+            <% @user.reviews_date_ordered.each do |review| %>
+            <li><%= link_to(review.title , review_path(review))%></li>
+        <ul>
+           <li>Pet: <%= link_to(review.pet.name, pet_path(review.pet)) %></li>
+         <li>Rating: <%= review.rating %></li>
             <li>Updated: <%= review.updated_at%>
         </ul>
-    <% end %>
-</ul>
+            <% end %>
+
+  </div>
+  
+</div>
