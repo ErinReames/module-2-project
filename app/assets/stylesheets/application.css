@@ -1,4 +1,4 @@
-/*
+    /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,17 +13,21 @@
  *= require_tree .
  *= require_self
  */
-
-.card {
-    margin: 0 auto;
-    /* Added */
-    float: none;
-    /* Added */
-    margin-bottom: 10px;
-    /* Added */
-}
-
-.list-group-item {
-    display: flex;
-    align-items: center;
-}
+    
+    .card {
+        margin: 0 auto;
+        /* Added */
+        float: none;
+        /* Added */
+        margin-bottom: 10px;
+        /* Added */
+    }
+    
+    .list-group-item {
+        display: flex;
+        align-items: center;
+    }
+    
+    .bkgnd {
+        background-color: rgb(198, 232, 243);
+    }
