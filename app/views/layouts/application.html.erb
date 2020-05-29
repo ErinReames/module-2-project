@@ -26,7 +26,7 @@ body  {
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto nav-fill w-100">
       <li class="nav-item active">
          <a class="nav-link" <%= link_to("Home", root_path)%></a>
       </li>
@@ -36,6 +36,9 @@ body  {
        
        <li class="nav-item">
         <a class="nav-link"   <a <%= link_to('New Appointment', new_appointment_path)%></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"   <a <%= link_to('Locations', stores_path)%></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" <%= link_to("Login", login_path)%></a>

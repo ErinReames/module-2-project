@@ -12,9 +12,11 @@
     <li class="list-group-item">Disposition: <%= @pet.disposition %></li>
     
       <li class="list-group-item">Average Rating: <%= @pet.average_review_rating %></li>
-       
+     
   </ul>
+ 
   <div class="card-body">
+  <div class="h3 text-center"> <a <%= link_to('Schedule an appointment', new_appointment_path)%></a></div><br>
     <h5 class="card-title">Upcoming Appointments (<%=@pet.upcoming_appointments_count%>)</h5>
     <ul>
     <% @pet.upcoming_appointments.each do |appointment| %>
@@ -33,15 +35,18 @@
   <div class="card-body">
     <h5 class="card-title">Reviews (<%=@pet.reviews_count%>)</h5>
     <ul>
-    <% @pet.reviews_date_ordered.each do |review| %>
+      <% @pet.reviews_date_ordered.each do |review| %>
         <li><%= link_to(review.title , review_path(review))%></li>
         <ul>
             <li>User: <%= review.user.username %></li>
             <li>Rating: <%= review.rating %></li>
             <li>Updated: <%= review.updated_at%>
+            
         </ul>
+        
             <% end %>
-</ul>
+    </ul>
+       <div class="h3 text-center"> <a <%= link_to('Submit Review', new_review_path)%></a></div>
   </div>
   
 </div>

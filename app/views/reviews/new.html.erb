@@ -1,4 +1,4 @@
-<h1>New Review</h1>
+<div class="h1 text-center"><h1>New Review</h1></div>
 
 <% if !!flash[:errors] %>
     <ul style = "color: red">
@@ -8,7 +8,7 @@
     </ul>
 <% end %>
 
-<%= form_with(model: @review) do |f| %>
+<div class="h3 text-center"><%= form_with(model: @review) do |f| %>
     <%= f.label(:user) %>
     <%= f.collection_select(:user_id, User.all_username_ordered, :id, :username) %>
     <br>
@@ -24,5 +24,5 @@
     <%= f.label(:rating) %>
     <%= f.number_field(:rating, in: (1..5)) %>
     <br>
-    <%= f.submit %>
+    <%= f.submit %></div>
 <% end %>

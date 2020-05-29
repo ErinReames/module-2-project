@@ -1,13 +1,25 @@
-<h1>Pet Reviews</h1>
- <%= link_to('Create New Review', new_review_path) %>
+<div class="h1 text-center"> 
+<h1>Pet Reviews</h1></div>
+ <div class="h3 text-center"><%= link_to('Create New Review', new_review_path) %></div>
 
-<ul>
+<ul class="list-group-item text-center ">
+<div class="flex-column">
+
    <% @reviews.each do |review| %>
-      <li><%= link_to review.title, review_path(review) %></li> 
-      <ul>
-         <li>Rating: <%= review.rating %></li>
-         <li>User: <%= link_to(review.user.username, user_path(review.user)) %></li>
+      <li class="list-group-item"><%= link_to review.title, review_path(review) %><br> 
+      
+         <li>Rating: <%= review.rating %><br>
+          <li class="list-group-item"></li>User: <%= link_to(review.user.username, user_path(review.user)) %></li>
          <li>Pet: <%= link_to(review.pet.name, pet_path(review.pet)) %></li>
-      </ul>
+      
    <% end %>
+   </div>
 </ul>
+<br>
+<br>
+
+
+
+  
+  
+  
