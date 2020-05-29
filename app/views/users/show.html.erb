@@ -58,10 +58,10 @@
 
   </div>
 
-  <a <%= link_to('New Appointment', new_appointment_path)%></a>
+  <a <%= link_to('New Appointment', new_appointment_path)%></a><br>
 
- <a <%= link_to('Edit Account', edit_user_path(@user)) %></a>
+ <a <%= link_to('Add Pet Review', new_review_path) %></a><br>
   
-  <a <%= link_to('Delete Account', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }) %>
-<%= link_to('Logout', logout_path) %></a>
+<%= link_to('Logout', logout_path) %></a><br>
+<br>
 </div>
