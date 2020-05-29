@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
     def require_login
         if current_user
-            if current_user.username == "admin"
+            if current_user.username == "Admin"
                 # Admin is logged in
             else
                 # Only allow users to look at their pages
