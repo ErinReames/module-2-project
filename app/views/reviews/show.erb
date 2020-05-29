@@ -1,8 +1,17 @@
-<div class="h1 text-center"><h1><%= @review.title %></h1></div>
-<div class="h3 text-center">
-    <li>Rating: <%= @review.rating %></li>
-    <li>User: <%= link_to(@review.user.username, user_path(@review.user)) %></li>
-    <li>Pet: <%= link_to(@review.pet.name, pet_path(@review.pet)) %></li>
-    <li>Date: <%= @review.date %></li>
+<br>
+<br>
 
-<p><%= @review.content %></p></div>
+<div class="card" style="width: 18rem;">
+  
+  <div class="h1 text-center"><h1><%= @review.title %></h1></div>
+   
+ 
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item text-center">Rating: <%= @review.rating %></li>
+    <li class="list-group-item">User: <%= link_to(@review.user.username, user_path(@review.user)) %></li>
+    <li class="list-group-item">Pet: <%= link_to(@review.pet.name, pet_path(@review.pet)) %></li>
+    <li class="list-group-item">Pet: Date: <%= @review.date %></li>
+    <li class="list-group-item"><%= @review.content %></li>
+  </ul>
+ 
+</div>
