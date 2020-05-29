@@ -65,7 +65,7 @@ class UsersController < ApplicationController
             end
         else
             # No user is logged in
-            return head(:forbidden)
+            head(:forbidden)
         end
     end
     
